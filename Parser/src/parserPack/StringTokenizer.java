@@ -67,9 +67,9 @@ public class StringTokenizer {
     return ret;
   }
 
-  public static void main(String[] args) {
-    String str = "n ( ( ( ) ) ) )";
-    StringTokenizer sT = new StringTokenizer(str);
-    System.out.println(sT.toQueue().toString());
-  }
+//  public static void main(String[] args) {
+//    String str = "n ( ( ( ) ) ) )";
+//    StringTokenizer sT = new StringTokenizer(str);
+//    System.out.println(sT.toQueue().toString());
+//  }
 }

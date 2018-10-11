@@ -44,16 +44,16 @@ public class CreateParseTree {
     return retTree;
   }
 
-  public static void main(String[] args) {
-    Deque<String> strTest = new LinkedList<String>();
-    strTest.add("A");
-    strTest.add("~");
-    strTest.add("B");
-    strTest.add("|");
-    strTest.add("C");
-    strTest.add("&");
-    Tree<String> newTr = new Tree<String>();
-    CreateParseTree newTree = new CreateParseTree(strTest);
-    newTr.buildTree(newTree.createTree().getRoot(), 0);
-  }
+//  public static void main(String[] args) {
+//    Deque<String> strTest = new LinkedList<String>();
+//    strTest.add("A");
+//    strTest.add("~");
+//    strTest.add("B");
+//    strTest.add("|");
+//    strTest.add("C");
+//    strTest.add("&");
+//    Tree<String> newTr = new Tree<String>();
+//    CreateParseTree newTree = new CreateParseTree(strTest);
+//    newTr.buildTree(newTree.createTree().getRoot(), 0);
+//  }
 }
