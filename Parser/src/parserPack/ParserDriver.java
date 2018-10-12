@@ -14,7 +14,7 @@ public class ParserDriver {
       reader = new Scanner(System.in);
       System.out.println("Enter a boolean expression in formal notation: ");
       String userIn = reader.nextLine();
-      if (userIn.equals("exit")) {
+      if (userIn.equals("exit") || userIn.equals("Exit")) {
         break;
       }
       System.out.println();
