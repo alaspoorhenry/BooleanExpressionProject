@@ -9,6 +9,7 @@ public class ParserDriver {
   public static void main(String[] args) {
     System.out.println(
         "This program only accepts boolean expressions with the following connectives: { ~ , | , & , -> , <- , <-> }");
+    System.out.println("Enter \"Exit\" to terminate the program.");
     while(true) {
       reader = new Scanner(System.in);
       System.out.println("Enter a boolean expression in formal notation: ");
