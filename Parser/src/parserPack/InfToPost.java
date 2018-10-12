@@ -19,6 +19,9 @@ public class InfToPost {
     SYMBOLSET.add("~");
     SYMBOLSET.add("&");
     SYMBOLSET.add("|");
+    SYMBOLSET.add("<");
+    SYMBOLSET.add(">");
+    SYMBOLSET.add("=");
   }
 
   private void setPrecedenceMap() {
@@ -41,7 +44,7 @@ public class InfToPost {
           ret.add(operatorStack.pop());
         }
         operatorStack.pop();
-      } else if ((a.equals("&")) || (a.equals("|") || (a.equals("~")))) {
+      } else if (SYMBOLSET.contains(a)) {
         operatorStack.add(a);
       } else {
         ret.add(a);

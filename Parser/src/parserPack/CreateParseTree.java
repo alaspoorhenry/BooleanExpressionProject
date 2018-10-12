@@ -3,13 +3,21 @@ package parserPack;
 import parserPack.Tree;
 import parserPack.Tree.Node;
 import java.util.Deque;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class CreateParseTree {
   private Deque<String> postfixExp = new LinkedList<String>();
+  private static final Set<String> BINARYCONNECTIVES = new HashSet<String>();
 
   public CreateParseTree(Deque<String> pFE) {
     this.postfixExp = pFE;
+    BINARYCONNECTIVES.add("|");
+    BINARYCONNECTIVES.add("&");
+    BINARYCONNECTIVES.add("<");
+    BINARYCONNECTIVES.add(">");
+    BINARYCONNECTIVES.add("=");
   }
 
   public Tree<String> createTree() {
@@ -18,7 +26,7 @@ public class CreateParseTree {
     Node<String> tempOne;
     Node<String> tempTwo;
     for (String a : postfixExp) {
-      if ((a.equals("&")) || (a.equals("|"))) {
+      if (BINARYCONNECTIVES.contains(a)) {
         retTree.createLeaf(a);
         temp = retTree.popRet();
         tempOne = retTree.popRet();

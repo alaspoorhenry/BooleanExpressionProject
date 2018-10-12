@@ -14,11 +14,7 @@ public class EvaluateGivenParseTree {
   private HashMap<String, Boolean> taMap = new HashMap<String, Boolean>();
   private Queue<String> sentenceQueue = new LinkedList<String>();
   private Tree<String> parseTree = new Tree<String>();
-  private Queue<Boolean[]> truthAssignmentPlr = new LinkedList<Boolean[]>();// i
-                                                                            // cant
-                                                                            // do
-                                                                            // this
-                                                                            // apparently
+  private Queue<Boolean[]> truthAssignmentPlr = new LinkedList<Boolean[]>();
   private static final Set<String> SYMBOLSET = new HashSet<String>();
 
   public EvaluateGivenParseTree(Queue<String> sS, Tree<String> treeInput) {
@@ -27,6 +23,9 @@ public class EvaluateGivenParseTree {
     EvaluateGivenParseTree.SYMBOLSET.add("~");
     EvaluateGivenParseTree.SYMBOLSET.add("&");
     EvaluateGivenParseTree.SYMBOLSET.add("|");
+    EvaluateGivenParseTree.SYMBOLSET.add("=");
+    EvaluateGivenParseTree.SYMBOLSET.add("<");
+    EvaluateGivenParseTree.SYMBOLSET.add(">");
     this.generateTableDefault();
   }
 
@@ -50,6 +49,12 @@ public class EvaluateGivenParseTree {
       return ((evaluateGivenTA(node.left)) && (evaluateGivenTA(node.right)));
     } else if (node.data.equals("|")) {
       return ((evaluateGivenTA(node.left)) || (evaluateGivenTA(node.right)));
+    } else if (node.data.equals(">")){
+      return ((!evaluateGivenTA(node.left))|(evaluateGivenTA(node.right)));
+    } else if (node.data.equals("<")){
+      return ((!evaluateGivenTA(node.right))|(evaluateGivenTA(node.left)));
+    } else if (node.data.equals("=")){
+      return (evaluateGivenTA(node.left) && (evaluateGivenTA(node.right))) || (!evaluateGivenTA(node.left) && (!evaluateGivenTA(node.right))); 
     }
     return false;
   }
