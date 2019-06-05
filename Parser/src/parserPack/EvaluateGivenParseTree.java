@@ -55,21 +55,6 @@ public class EvaluateGivenParseTree {
     	}
     }
     return false;
-    
-//    else if (node.data.equals("~")) {
-//      return (!(evaluateGivenTA(node.left)));
-//    } else if (node.data.equals("&")) {
-//      return ((evaluateGivenTA(node.left)) && (evaluateGivenTA(node.right)));
-//    } else if (node.data.equals("|")) {
-//      return ((evaluateGivenTA(node.left)) || (evaluateGivenTA(node.right)));
-//    } else if (node.data.equals(">")){
-//      return ((!evaluateGivenTA(node.left))|(evaluateGivenTA(node.right)));
-//    } else if (node.data.equals("<")){
-//      return ((!evaluateGivenTA(node.right))|(evaluateGivenTA(node.left)));
-//    } else if (node.data.equals("=")){
-//      return (evaluateGivenTA(node.left) && (evaluateGivenTA(node.right))) || (!evaluateGivenTA(node.left) && (!evaluateGivenTA(node.right))); 
-//    }
-//    return false;
   }
 
   // falsifies every variable
@@ -106,21 +91,4 @@ public class EvaluateGivenParseTree {
       }
     }
   }
-
-//  public static void main(String[] args) {
-//    Deque<String> strTest = new LinkedList<String>();
-//    strTest.add("A");
-//    strTest.add("~");
-//    strTest.add("A");
-//    strTest.add("|");
-//    strTest.add("C");
-//    strTest.add("&");
-//    Tree<String> newTr = new Tree<String>();
-//    CreateParseTree newTree = new CreateParseTree(strTest);
-//    newTr.buildTree(newTree.createTree().getRoot(), 0);
-//    System.out.println(newTree.createTree().returnSentenceQueue());
-//    EvaluateGivenParseTree egpt = new EvaluateGivenParseTree(
-//        newTree.createTree().returnSentenceQueue(), newTree.createTree());
-//    egpt.evaluateWithCurrentTA();
-//  }
 }
