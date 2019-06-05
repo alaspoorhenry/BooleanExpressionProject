@@ -52,24 +52,4 @@ public class InfToPost {
     }
     return ret;
   }
-
-//  public static void main(String[] args) {
-//    Deque<String> infToPostTest = new LinkedList<String>();
-//    infToPostTest.add("(");
-//    infToPostTest.add("(");
-//    infToPostTest.add("(");
-//    infToPostTest.add("~");
-//    infToPostTest.add("A");
-//    infToPostTest.add(")");
-//    infToPostTest.add("|");
-//    infToPostTest.add("B");
-//    infToPostTest.add(")");
-//    infToPostTest.add("&");
-//    infToPostTest.add("C");
-//    infToPostTest.add(")");
-//    // System.out.println(infToPostTest.toString());
-//    System.out.println(infToPostTest);
-//    InfToPost n = new InfToPost(infToPostTest);
-//    System.out.println(n.shuntingYardAlgo());
-//  }
 }
