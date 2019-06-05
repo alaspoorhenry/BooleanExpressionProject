@@ -27,7 +27,7 @@ public class CreateParseTree {
     Node<String> tempTwo;
     for (String a : postfixExp) {
       if (BINARYCONNECTIVES.contains(a)) {
-        retTree.createLeaf(a);
+    	retTree.createLeaf(a);
         temp = retTree.popRet();
         tempOne = retTree.popRet();
         tempTwo = retTree.popRet();
@@ -51,17 +51,4 @@ public class CreateParseTree {
     retTree.markRoot();
     return retTree;
   }
-
-//  public static void main(String[] args) {
-//    Deque<String> strTest = new LinkedList<String>();
-//    strTest.add("A");
-//    strTest.add("~");
-//    strTest.add("B");
-//    strTest.add("|");
-//    strTest.add("C");
-//    strTest.add("&");
-//    Tree<String> newTr = new Tree<String>();
-//    CreateParseTree newTree = new CreateParseTree(strTest);
-//    newTr.buildTree(newTree.createTree().getRoot(), 0);
-//  }
 }

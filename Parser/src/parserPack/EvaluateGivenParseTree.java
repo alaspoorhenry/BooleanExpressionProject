@@ -43,20 +43,33 @@ public class EvaluateGivenParseTree {
   private boolean evaluateGivenTA(Node<String> node) {
     if (!(SYMBOLSET.contains(node.data))) {
       return (this.taMap.get(node.data));
-    } else if (node.data.equals("~")) {
-      return (!(evaluateGivenTA(node.left)));
-    } else if (node.data.equals("&")) {
-      return ((evaluateGivenTA(node.left)) && (evaluateGivenTA(node.right)));
-    } else if (node.data.equals("|")) {
-      return ((evaluateGivenTA(node.left)) || (evaluateGivenTA(node.right)));
-    } else if (node.data.equals(">")){
-      return ((!evaluateGivenTA(node.left))|(evaluateGivenTA(node.right)));
-    } else if (node.data.equals("<")){
-      return ((!evaluateGivenTA(node.right))|(evaluateGivenTA(node.left)));
-    } else if (node.data.equals("=")){
-      return (evaluateGivenTA(node.left) && (evaluateGivenTA(node.right))) || (!evaluateGivenTA(node.left) && (!evaluateGivenTA(node.right))); 
+    } else {
+    	switch(node.data) {
+    		case "~": return (!(evaluateGivenTA(node.left))); 
+    		case "&": return ((evaluateGivenTA(node.left)) && (evaluateGivenTA(node.right)));
+    		case "|": return ((evaluateGivenTA(node.left)) || (evaluateGivenTA(node.right)));
+    		case ">": return ((!evaluateGivenTA(node.left))|(evaluateGivenTA(node.right)));
+    		case "<": return ((!evaluateGivenTA(node.right))|(evaluateGivenTA(node.left)));
+    		case "=": 
+    			return (evaluateGivenTA(node.left) && (evaluateGivenTA(node.right))) || (!evaluateGivenTA(node.left) && (!evaluateGivenTA(node.right)));
+    	}
     }
     return false;
+    
+//    else if (node.data.equals("~")) {
+//      return (!(evaluateGivenTA(node.left)));
+//    } else if (node.data.equals("&")) {
+//      return ((evaluateGivenTA(node.left)) && (evaluateGivenTA(node.right)));
+//    } else if (node.data.equals("|")) {
+//      return ((evaluateGivenTA(node.left)) || (evaluateGivenTA(node.right)));
+//    } else if (node.data.equals(">")){
+//      return ((!evaluateGivenTA(node.left))|(evaluateGivenTA(node.right)));
+//    } else if (node.data.equals("<")){
+//      return ((!evaluateGivenTA(node.right))|(evaluateGivenTA(node.left)));
+//    } else if (node.data.equals("=")){
+//      return (evaluateGivenTA(node.left) && (evaluateGivenTA(node.right))) || (!evaluateGivenTA(node.left) && (!evaluateGivenTA(node.right))); 
+//    }
+//    return false;
   }
 
   // falsifies every variable
